@@ -1,0 +1,26 @@
+{
+  "name": "teamflow-backend",
+  "version": "1.0.0",
+  "description": "This is the backend of a project management application \"team-flow\"",
+  "license": "ISC",
+  "author": "Kshitij Upadhyay",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-async-handler": "^1.2.0",
+    "mongodb": "^7.5.0",
+    "mongoose": "^9.9.3",
+    "router": "^2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
