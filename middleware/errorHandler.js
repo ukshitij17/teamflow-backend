@@ -1,5 +1,12 @@
 const {constants,errorMessages} = require("../constants")
 const errorHandler = (err,req, res, next)=>{
+    //Handling mongoDB duplicate key error.
+    if(err.code == 11000){
+        res.status(409);
+        res.json({"message": "A Project with the same name already exists", "stackTrace": err.stack});
+        return;
+    }
+    
     const statusCode = res.statusCode && res.statusCode != 200 ? res.statusCode : 500;
     switch (statusCode) {
         case constants.VALIDATION_ERROR:

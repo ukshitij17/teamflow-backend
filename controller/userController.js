@@ -55,7 +55,7 @@ const userLogin = asyncHandler(async (req, res) => {
     if (existingUser && await bcrypt.compare(password, existingUser.password)) {
 
 
-        const accessToken = generateAccessToken(existingUser.id)
+        const accessToken = generateAccessToken(existingUser.id, existingUser.name);
 
         const refreshToken = generateRefreshToken(existingUser.id);
         res.cookie("refreshToken",refreshToken,{
@@ -76,7 +76,7 @@ const userLogin = asyncHandler(async (req, res) => {
 })
 
 const currentUser = asyncHandler(async (req, res) => {
-    res.status(200).json({ "Here is the User's id": req.user.id });
+    res.status(200).json({ "Here is the User's id": req.user.id, "Username": req.user.user_name });
 })
 
 //DESC Verify RefreshToken
